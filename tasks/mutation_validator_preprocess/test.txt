@@ -1,0 +1,16 @@
+ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSTUMOR/C835.HCC1143.2.chr21.bam  WGST.bam
+   10  ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSTUMOR/C835.HCC1143.2.chr21.bam  WGST1.bam
+   11  ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSTUMORBAU/C835.HCC1143.2.chr21.bam.bai  WGST1.bam.bai
+   12  ls -latr
+   13  rm WGST1.bam.bai
+   14  ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSTUMORBAI/C835.HCC1143.2.chr21.bam.bai WGST1.bam.bai
+   15  lt
+   16  ls -latr
+   17  ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSNORMAL/C835.HCC1143_BL.4.chr21.bam WGSN1.bam
+   18  ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSNORMALBAI/C835.HCC1143_BL.4.chr21.bam.bai WGSN.bam.bai
+   19  ln -sT /opt/inputs/opt/MutationValidator/tasks/mutation_validator_preprocess/localized_inputs/mutation_validator_preprocess_workflow.mutation_validator_preprocess.WGSNORMALBAI/C835.HCC1143_BL.4.chr21.bam.bai WGSN1.bam.bai
+   20  ls -latr
+   21  python /opt/src/mutation_validator_preprocess.py  --mafsnp HCC1143_chr21.maf.snp.maf --mafindel HCC1143_chr21.maf.indel.maf --wextumor None --wexnormal None --wgstumor WGST1.bam --wgsnormal WGSN1.bam --rnatumor None --targetedtumor None --targetednormal None --lowpasstumor None --lowpassnormal None --othertumor None --othernormal None --out HCC1143_chr21 --rnatype hg19
+   22  mv softlinked/ softlinked0
+   23  python /opt/src/mutation_validator_preprocess.py  --mafsnp HCC1143_chr21.maf.snp.maf --mafindel HCC1143_chr21.maf.indel.maf --wextumor None --wexnormal None --wgstumor WGST1.bam --wgsnormal WGSN1.bam --rnatumor None --targetedtumor None --targetednormal None --lowpasstumor None --lowpassnormal None --othertumor None --othernormal None --out HCC1143_chr21 --rnatype hg19
+

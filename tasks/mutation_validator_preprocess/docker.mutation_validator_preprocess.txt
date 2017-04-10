@@ -1,0 +1,31 @@
+FROM ubuntu:16.04
+RUN apt-get update && apt-get install -y  sudo dstat 
+
+
+RUN apt-get install -y python2.7-dev samtools gfortran
+
+# Load libraries hdf5, atlas, 
+
+RUN apt-get install -y libhdf5-dev libatlas-base-dev 
+
+# Load mpi and supporting library
+
+# RUN apt-get install openmpi-bin openmpi-common openssh-client openssh-server libopenmpi1.6 libopenmpi-dev -y
+
+# Get pip
+
+RUN apt-get install -y python-pip wget zlib1g-dev 
+RUN pip install -U pip
+RUN pip install -U setuptools
+
+# Get python packages: numpy, scipy, pysam, cython, and h5py
+
+RUN pip install numpy scipy pysam cython 
+RUN pip install h5py pandas ArgumentParser 
+
+
+
+#copy contents of tasks/<taskname>/build/src on the build host into /opt/src on the docker
+COPY src/ /opt/src/
+
+WORKDIR /opt/src
