@@ -70,6 +70,9 @@ LPNBAM=\"${LPNORMAL}\"
 OTBAM=\"${OTUMOR}\"
 ONBAM=\"${ONORMAL}\"
 
+PAIRID = \"${PAIRID}\"
+PREPROCESSED_FILE = '%s.pileup_preprocessing.txt'%PAIRID
+
 if os.path.exists(WEXTBAM):
     run('ln -sT ' + WEXTBAM + ' WEXT.bam')
     run('ln -sT ' + \"${WEXTUMORBAI}\" + ' WEXT.bam.bai')
@@ -173,6 +176,27 @@ cmd='python /opt/src/mutation_validator_preprocess.py ' + cmd1 + cmd2 + cmd3
 print cmd
 run(cmd)
 
+cmd='python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
+--mutation.validator.preprocessed.file %s \
+--maf_file_to_annotate %s \
+--discovery_type.wgs_wex_rna_targeted wex \
+--pair_id  $s \
+--print_discovery_counts  true \
+--normal_coverage_threshold  0 \
+--job.spec.memory 2'%(PREPROCESSED_FILE,MAFSNP,PAIRID)
+
+run(cmd)
+
+cmd='python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
+--mutation.validator.preprocessed.file %s \
+--maf_file_to_annotate %s \
+--discovery_type.wgs_wex_rna_targeted wex \
+--pair_id  $s \
+--print_discovery_counts  true \
+--normal_coverage_threshold  0 \
+--job.spec.memory 2'%(PREPROCESSED_FILE,MAFINDEL,PAIRID) 
+
+run(cmd)
 
 #########################
 # end task-specific calls

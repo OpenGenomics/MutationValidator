@@ -24,6 +24,26 @@ RUN pip install numpy scipy pysam cython
 RUN pip install h5py pandas ArgumentParser 
 
 
+#install matlab 2012a mcr
+
+RUN apt-get update && \ 
+	apt-get install -yq libstdc++6 unzip xorg openbox curl
+
+
+RUN mkdir /Matlab && curl http://www.mathworks.com/supportfiles/MCR_Runtime/R2012a/MCR_R2012a_glnxa64_installer.zip -o /Matlab/MCR_R2012a_glnxa64_installer.zip
+
+RUN cd /Matlab && unzip -q MCR_R2012a_glnxa64_installer.zip
+RUN rm -rf /Matlab/MCR_R2012a_glnxa64_installer.zip
+RUN cd /Matlab && ./install -agreeToLicense yes -mode silent 
+
+
+
+ENV LD_LIBRARY_PATH /usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/bin/glnxa64:/usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:/usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/sys/java/jre/glnxa64/jre/lib/amd64/server:/usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/sys/java/jre/glnxa64/jre/lib/amd64
+
+ENV XAPPLRESDIR /usr/local/MATLAB/MATLAB_Compiler_Runtime/v717/X11/app-defaults
+
+
+
 
 #copy contents of tasks/<taskname>/build/src on the build host into /opt/src on the docker
 COPY src/ /opt/src/
