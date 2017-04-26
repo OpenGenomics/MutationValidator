@@ -26,8 +26,15 @@ RUN pip install h5py pandas ArgumentParser
 
 #install matlab 2012a mcr
 
-RUN apt-get update && \ 
-	apt-get install -yq libstdc++6 unzip xorg openbox curl
+RUN apt-get update 
+RUN apt-get install apt-utils
+RUN apt-get install  -yq libstdc++6
+RUN apt-get install -yq unzip
+RUN apt-get install -yq xorg
+RUN apt-get install -yq openbox
+RUN apt-get install -yq curl
+ 
+#	apt-get install -yq libstdc++6 unzip xorg openbox curl
 
 
 RUN mkdir /Matlab && curl http://www.mathworks.com/supportfiles/MCR_Runtime/R2012a/MCR_R2012a_glnxa64_installer.zip -o /Matlab/MCR_R2012a_glnxa64_installer.zip
