@@ -209,6 +209,9 @@ run('/opt/src/algutil/monitor_stop.py')
 
     output {
         File pileup_preprocessing_txt="${PAIRID}.pileup_preprocessing.txt"
+        File validated_snp_maf="snp_mv/${PAIRID}.snp.validated.maf"
+        File validated_indel_maf="indel_mv/${PAIRID}.indel.validated.maf"
+        File dstat_log="dstat.log"
     }
 
     runtime {
