@@ -1,7 +1,7 @@
 import os
 import sys
 import string
-import xml.parsers.expat
+#import xml.parsers.expat
 
 zip_search_path = ['/xchip/tcga_scratch/gsaksena/CancerGenomeAnalysis/trunk/analysis_pipeline/genepattern/build']
 cache_path='/xchip/tcga_scratch/gsaksena/gp_cache'
