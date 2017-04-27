@@ -141,7 +141,7 @@ def build_exe_str(exe_template_str,arg_param_value_dict,missing_args,arg_prefix_
     if exe_list[0]=='<bsub>':
         exe_list = exe_list[3:]
         error_mode = 'exit_code'
-    elif exe_list[0]=='<matlab-2009a>':
+    elif exe_list[0]=='<matlab-2012a>':
         exe_list = exe_list[1:]
         error_mode = 'exit_code'
     elif executor == 'ScatterGather':
