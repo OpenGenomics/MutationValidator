@@ -183,7 +183,7 @@ cmd='python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libd
 --pair_id  %s \
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
---job.spec.memory 2'%(PREPROCESSED_FILE,MAFSNP,PAIRID+'.snp.')
+--job.spec.memory 2'%(PREPROCESSED_FILE,MAFSNP,PAIRID+'.snp')
 
 run(cmd)
 
@@ -194,7 +194,7 @@ cmd='python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libd
 --pair_id  %s \
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
---job.spec.memory 2'%(PREPROCESSED_FILE,MAFINDEL,PAIRID+'.indel.') 
+--job.spec.memory 2'%(PREPROCESSED_FILE,MAFINDEL,PAIRID+'.indel') 
 
 run(cmd)
 
