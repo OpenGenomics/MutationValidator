@@ -95,8 +95,8 @@ else:
     WEXNBAM='None'
 
 if os.path.exists(WGSTBAM):
-    run('ln -sT ' + WGSTBAM + ' softlinked/WGST.bam')
-    run('ln -sT ' + \"${WGSTUMORBAI}\"  + '  softlinked/WGST.bam.bai')
+    run('ln -sT ' + WGSTBAM + ' WGST.bam')
+    run('ln -sT ' + \"${WGSTUMORBAI}\"  + '  WGST.bam.bai')
     WGSTBAM = CWD + '/WGST.bam' #os.path.basename(WGSTBAM)
 #    run('ls -latrh ' + WGSTBAM+'*')
 else:
