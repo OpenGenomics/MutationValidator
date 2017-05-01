@@ -53,7 +53,7 @@ run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"SNP|DNP|T
 
 run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"INS|DEL\" -e .indel.maf')
 
-#run('mkdir -p softlinked ')
+run('mkdir -p softlinked ')
 
 run('ls -latr ')
 
@@ -77,8 +77,8 @@ PAIRID = \"${PAIRID}\"
 PREPROCESSED_FILE = '%s.pileup_preprocessing.txt'%PAIRID
 
 if os.path.exists(WEXTBAM):
-    run('ln -sT ' + WEXTBAM + ' WEXT.bam')
-    run('ln -sT ' + \"${WEXTUMORBAI}\" + ' WEXT.bam.bai')
+    run('ln -sT ' + WEXTBAM + ' softlinked/WEXT.bam')
+    run('ln -sT ' + \"${WEXTUMORBAI}\" + ' softlinked/WEXT.bam.bai')
     WEXTBAM = 'WEXT.bam' #os.path.basename(WEXTBAM)
     run('ls -latrh ' + WEXTBAM +'*')
 
@@ -86,32 +86,32 @@ else:
     WEXTBAM='None'
 
 if os.path.exists(WEXNBAM):
-    run('ln -sT ' + WEXNBAM + ' WEXN.bam')
-    run('ln -sT ' + \"${WEXNORMALBAI}\" + ' WEXN.bam.bai' )
+    run('ln -sT ' + WEXNBAM + ' softlinked/WEXN.bam')
+    run('ln -sT ' + \"${WEXNORMALBAI}\" + ' softlinked/WEXN.bam.bai' )
     WEXNBAM = 'WEXN.bam' #os.path.basename(WEXNBAM)
     run('ls -latrh ' + WEXTBAM+'*')
 else:
     WEXNBAM='None'
 
 if os.path.exists(WGSTBAM):
-    run('ln -sT ' + WGSTBAM + ' WGST.bam')
-    run('ln -sT ' + \"${WGSTUMORBAI}\"  + '  WGST.bam.bai')
+    run('ln -sT ' + WGSTBAM + ' softlinked/WGST.bam')
+    run('ln -sT ' + \"${WGSTUMORBAI}\"  + '  softlinked/WGST.bam.bai')
     WGSTBAM = 'WGST.bam' #os.path.basename(WGSTBAM)
     run('ls -latrh ' + WGSTBAM+'*')
 else:
     WGSTBAM='None'
 
 if os.path.exists(WGSNBAM):
-    run('ln -sT ' + WGSNBAM + ' WGSN.bam')
-    run('ln -sT ' + \"${WGSNORMALBAI}\" + ' WGSN.bam.bai')
+    run('ln -sT ' + WGSNBAM + ' softlinked/WGSN.bam')
+    run('ln -sT ' + \"${WGSNORMALBAI}\" + ' softlinked/WGSN.bam.bai')
     WGSNBAM = 'WGSN.bam' #os.path.basename(WGSNBAM)
     run('ls -latrh ' + WGSNBAM+'*')
 else:
     WGSNBAM='None'
 
 if os.path.exists(RNATBAM):
-    run('ln -sT ' + RNATBAM + ' RNAT.bam')
-    run('ln -sT ' + \"${RNATUMORBAI}\" + ' RNAT.bam.bai' )
+    run('ln -sT ' + RNATBAM + ' softlinked/RNAT.bam')
+    run('ln -sT ' + \"${RNATUMORBAI}\" + ' softlinked/RNAT.bam.bai' )
     RNATBAM = 'RNAT.bam'  #os.path.basename(RNATBAM)
     run('ls -latrh ' + RNATBAM+'*')
     run('samtools view -H ' + RNATBAM + ' | grep SN:chr1 > RNACHECK.txt')
@@ -124,8 +124,8 @@ else:
     RNATBAM='None'
 
 if os.path.exists(TARGTBAM):
-    run('ln -sT ' + TARGTBAM + ' TARGT.bam')
-    run('ln -sT ' + \"${TARGTUMORBAI}\" + ' TARGT.bam.bai')
+    run('ln -sT ' + TARGTBAM + ' softlinked/TARGT.bam')
+    run('ln -sT ' + \"${TARGTUMORBAI}\" + ' softlinked/TARGT.bam.bai')
     TARGTBAM = 'TARGT.bam'  #os.path.basename(TARGTBAM)
     run('ls -latrh ' + TARGTBAM+'*')
 else:
@@ -139,7 +139,7 @@ if os.path.exists(TARGNBAM):
 else:
     TARGNBAM='None'
 
-if os.path.exists(LPTBAM):
+if False and os.path.exists(LPTBAM):
     run('ln -sT ' + LPTBAM + ' .')
     run('ln -sT ' + \"${LPTUMORBAI}\" + ' .' )
     LPTBAM = os.path.basename(LPTBAM)
@@ -147,7 +147,7 @@ if os.path.exists(LPTBAM):
 else:
     LPTBAM='None'
 
-if os.path.exists(LPNBAM):
+if False and os.path.exists(LPNBAM):
     run('ln -sT ' + LPNBAM + ' .')
     run('ln -sT ' + \"${LPNORMALBAI}\" + ' .')
     LPNBAM = os.path.basename(LPNBAM)
@@ -155,7 +155,7 @@ if os.path.exists(LPNBAM):
 else:
     LPNBAM='None'
 
-if os.path.exists(OTBAM):
+if False and os.path.exists(OTBAM):
     run('ln -sT ' + OTBAM + ' .')
     run('ln -sT ' + \"${OTUMORBAI}\" + ' .')
     OTBAM = os.path.basename(OTBAM)
@@ -163,7 +163,7 @@ if os.path.exists(OTBAM):
 else:
     OTBAM='None'
 
-if os.path.exists(ONBAM):
+if False and os.path.exists(ONBAM):
     run('ln -sT ' + ONBAM + ' .')
     run('ln -sT ' + \"${ONORMALBAI}\" + ' .')
     ONBAM = os.path.basename(ONBAM)
