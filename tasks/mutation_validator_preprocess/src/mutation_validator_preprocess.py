@@ -65,9 +65,8 @@ def maf_to_position(filename): #convert maf to a position file with Chromosome, 
 #Gernate bam soft links from an input bam file, tumor normal status, and the type of sequencing method: This is used becase pysam requires that the index format is .bam.bai whereas picard by default uses .bai
 def create_soft_links(bamfile, sequencing, type_bam, bam_num):
     os.system("mkdir -p ./softlinked/")
-    os.chdir("softlinked")
 
-    if not os.path.exists("../"+bamfile):
+    if not os.path.exists(bamfile):
         print(bamfile)
         print("Bam file does not exist! Please check your input files.")
         exit()
@@ -75,18 +74,11 @@ def create_soft_links(bamfile, sequencing, type_bam, bam_num):
         print("Bam file already indexed appropriately for pysam")
         # not sure why there was a ln -3s in this line. Seems to work better with ln -s.... (Chip S. 20 Aug 2015)
         #os.system("ln 3-s " + bamfile + " ./softlinked/" + sequencing + "." + type_bam + "." + bam_num + ".bam")
-        #os.system("ln -sT " + bamfile + " ./softlinked/" + sequencing + "." + type_bam + "." + bam_num + ".bam")
-        #os.system("ln -sT " + bamfile + ".bai" + " ./softlinked/" + sequencing +"." + type_bam + "." + bam_num + ".bam.bai")
-        os.system("ln -s ../" + bamfile + " ./" + sequencing + "." + type_bam + "." + bam_num + ".bam")
-        os.system("ln -s ../" + bamfile + ".bai" + " ./" + sequencing +"." + type_bam + "." + bam_num + ".bam.bai")
- 
+        os.system("ln -s " + bamfile + " ./softlinked/" + sequencing + "." + type_bam + "." + bam_num + ".bam")
+        os.system("ln -s " + bamfile + ".bai" + " ./softlinked/" + sequencing +"." + type_bam + "." + bam_num + ".bam.bai")
     elif os.path.exists(bamfile):
-        #os.system("ln -sT " + bamfile + " ./softlinked/" + sequencing +  "." + type_bam + "." + bam_num + ".bam")
-        #os.system("ln -sT " + bamfile[:-4]  + ".bai ./softlinked/" + sequencing + "." + type_bam + "." + bam_num + ".bam.bai")
-        os.system("ln -s ../" + bamfile + " ./" + sequencing +  "." + type_bam + "." + bam_num + ".bam")
-        os.system("ln -s ../" + bamfile[:-4]  + ".bai ./" + sequencing + "." + type_bam + "." + bam_num + ".bam.bai")
-
-    os.chdir("..")
+        os.system("ln -s " + bamfile + " ./softlinked/" + sequencing +  "." + type_bam + "." + bam_num + ".bam")
+        os.system("ln -s " + bamfile[:-4]  + ".bai ./softlinked/" + sequencing + "." + type_bam + "." + bam_num + ".bam.bai")
 
 #Generate list of bam files from those that had symbolic link:
 def dir_to_bam_list(dir_list):
