@@ -80,7 +80,7 @@ if os.path.exists(WEXTBAM):
     run('ln -sT ' + WEXTBAM + ' softlinked/WEXT.bam')
     run('ln -sT ' + \"${WEXTUMORBAI}\" + ' softlinked/WEXT.bam.bai')
     WEXTBAM = 'WEXT.bam' #os.path.basename(WEXTBAM)
-    run('ls -latrh ' + WEXTBAM +'*')
+#    run('ls -latrh ' + WEXTBAM +'*')
 
 else:
     WEXTBAM='None'
@@ -89,7 +89,7 @@ if os.path.exists(WEXNBAM):
     run('ln -sT ' + WEXNBAM + ' softlinked/WEXN.bam')
     run('ln -sT ' + \"${WEXNORMALBAI}\" + ' softlinked/WEXN.bam.bai' )
     WEXNBAM = 'WEXN.bam' #os.path.basename(WEXNBAM)
-    run('ls -latrh ' + WEXTBAM+'*')
+#    run('ls -latrh ' + WEXTBAM+'*')
 else:
     WEXNBAM='None'
 
@@ -97,7 +97,7 @@ if os.path.exists(WGSTBAM):
     run('ln -sT ' + WGSTBAM + ' softlinked/WGST.bam')
     run('ln -sT ' + \"${WGSTUMORBAI}\"  + '  softlinked/WGST.bam.bai')
     WGSTBAM = 'WGST.bam' #os.path.basename(WGSTBAM)
-    run('ls -latrh ' + WGSTBAM+'*')
+#    run('ls -latrh ' + WGSTBAM+'*')
 else:
     WGSTBAM='None'
 
@@ -105,7 +105,7 @@ if os.path.exists(WGSNBAM):
     run('ln -sT ' + WGSNBAM + ' softlinked/WGSN.bam')
     run('ln -sT ' + \"${WGSNORMALBAI}\" + ' softlinked/WGSN.bam.bai')
     WGSNBAM = 'WGSN.bam' #os.path.basename(WGSNBAM)
-    run('ls -latrh ' + WGSNBAM+'*')
+#    run('ls -latrh ' + WGSNBAM+'*')
 else:
     WGSNBAM='None'
 
@@ -113,7 +113,7 @@ if os.path.exists(RNATBAM):
     run('ln -sT ' + RNATBAM + ' softlinked/RNAT.bam')
     run('ln -sT ' + \"${RNATUMORBAI}\" + ' softlinked/RNAT.bam.bai' )
     RNATBAM = 'RNAT.bam'  #os.path.basename(RNATBAM)
-    run('ls -latrh ' + RNATBAM+'*')
+#    run('ls -latrh ' + RNATBAM+'*')
     run('samtools view -H ' + RNATBAM + ' | grep SN:chr1 > RNACHECK.txt')
     with open('RNACHECK.txt', 'r') as f:
         RNACHECK_first_line = f.readline()
@@ -127,7 +127,7 @@ if os.path.exists(TARGTBAM):
     run('ln -sT ' + TARGTBAM + ' softlinked/TARGT.bam')
     run('ln -sT ' + \"${TARGTUMORBAI}\" + ' softlinked/TARGT.bam.bai')
     TARGTBAM = 'TARGT.bam'  #os.path.basename(TARGTBAM)
-    run('ls -latrh ' + TARGTBAM+'*')
+#    run('ls -latrh ' + TARGTBAM+'*')
 else:
     TARGTBAM='None'
 
@@ -135,7 +135,7 @@ if os.path.exists(TARGNBAM):
     run('ln -sT ' + TARGNBAM + ' TARGN.bam' )
     run('ln -sT ' + \"${TARGNORMALBAI}\" + '  TARGN.bam.bai' )
     TARGNBAM = 'TARGN.bam' #os.path.basename(TARGNBAM)
-    run('ls -latrh ' + TARGNBAM+'*')
+#    run('ls -latrh ' + TARGNBAM+'*')
 else:
     TARGNBAM='None'
 
@@ -143,7 +143,7 @@ if False and os.path.exists(LPTBAM):
     run('ln -sT ' + LPTBAM + ' .')
     run('ln -sT ' + \"${LPTUMORBAI}\" + ' .' )
     LPTBAM = os.path.basename(LPTBAM)
-    run('ls -latrh ' + LPTBAM+'*')
+#    run('ls -latrh ' + LPTBAM+'*')
 else:
     LPTBAM='None'
 
@@ -151,7 +151,7 @@ if False and os.path.exists(LPNBAM):
     run('ln -sT ' + LPNBAM + ' .')
     run('ln -sT ' + \"${LPNORMALBAI}\" + ' .')
     LPNBAM = os.path.basename(LPNBAM)
-    run('ls -latrh ' + LPNBAM+'*')
+#    run('ls -latrh ' + LPNBAM+'*')
 else:
     LPNBAM='None'
 
@@ -159,7 +159,7 @@ if False and os.path.exists(OTBAM):
     run('ln -sT ' + OTBAM + ' .')
     run('ln -sT ' + \"${OTUMORBAI}\" + ' .')
     OTBAM = os.path.basename(OTBAM)
-    run('ls -latrh ' + OTBAM+'*')
+#    run('ls -latrh ' + OTBAM+'*')
 else:
     OTBAM='None'
 
@@ -167,7 +167,7 @@ if False and os.path.exists(ONBAM):
     run('ln -sT ' + ONBAM + ' .')
     run('ln -sT ' + \"${ONORMALBAI}\" + ' .')
     ONBAM = os.path.basename(ONBAM)
-    run('ls -latrh ' + ONBAM+'*')
+#    run('ls -latrh ' + ONBAM+'*')
 else:
     ONBAM='None'
 
