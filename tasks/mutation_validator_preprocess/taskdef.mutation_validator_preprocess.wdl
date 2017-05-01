@@ -35,6 +35,9 @@ task mutation_validator_preprocess {
 python_cmd="
 import subprocess,os
 def run(cmd):
+    print('about to run')
+    print(cmd)
+    print('')
     subprocess.check_call(cmd,shell=True)
 
 run('ln -sT `pwd` /opt/execution')
@@ -197,6 +200,11 @@ cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_ad
 --job.spec.memory 2'%(PREPROCESSED_FILE,MAFINDEL,PAIRID) 
 
 run(cmd)
+
+
+import time
+time.sleep(999999999)
+
 
 #########################
 # end task-specific calls

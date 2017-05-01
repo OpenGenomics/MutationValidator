@@ -338,7 +338,7 @@ summed_output = args.out + ".pileup_preprocessing.summed.txt"
 summed_pileup.to_csv(summed_output, sep='\t')
 
 
-os.system("rm -rf ./softlinked/")
+#os.system("rm -rf ./softlinked/")
 
 #########################################
 #EXAMPLE TO IMPLEMENT: THCA
