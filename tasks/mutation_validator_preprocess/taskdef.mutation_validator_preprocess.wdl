@@ -183,7 +183,7 @@ run(cmd)
 cmd='mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
 --mutation.validator.preprocessed.file ../%s \
 --maf_file_to_annotate ../%s \
---discovery_type.wgs_wex_rna_targeted wex \
+--discovery_type.wgs_wex_rna_targeted wgs \
 --pair_id  %s.snp \
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
@@ -194,7 +194,7 @@ run(cmd)
 cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator39 \
 --mutation.validator.preprocessed.file ../%s \
 --maf_file_to_annotate ../%s \
---discovery_type.wgs_wex_rna_targeted wex \
+--discovery_type.wgs_wex_rna_targeted wgs \
 --pair_id  %s.indel \
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
