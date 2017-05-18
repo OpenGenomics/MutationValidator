@@ -33,7 +33,8 @@ task mutation_validator_preprocess {
     String cpu_cores = "2"
     String preemption
     command {
-python_cmd="
+cat <<EOF > pyscript.py
+
 import subprocess,os
 def run(cmd):
     print('about to run')
@@ -59,9 +60,9 @@ run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"INS|DEL\"
 #run('ls -latr ')
 
 CWD = os.getcwd() 
-PAIRID = \"${PAIRID}\"
+PAIRID = '${PAIRID}'
 
-MAF1=\"${MAF}\"
+MAF1='${MAF}'
 MAFSNP=os.path.join(CWD, PAIRID +'.snp.maf')
 MAFINDEL=os.path.join(CWD, PAIRID +'.indel.maf')
 PREPROCESSED_FILE = os.path.join(CWD, PAIRID +'.pileup_preprocessing.txt')  
@@ -71,21 +72,21 @@ VALMAFINDEL = os.path.join(CWD, 'indel_mv', PAIRID +'.indel.validated.maf')
 
 VALMAF = os.path.join(CWD, PAIRID +'.validated.maf')
 
-input_file_table = \{
-    'WEXT':['${WEXTUMOR}', '${WEXTUMORBAI}'],
-    'WEXN':['${WEXNORMAL}', '${WEXNORMALBAI}'],
-    'WGST':['${WGSTUMOR}', '${WGSTUMORBAI}'],
-    'WGSN':['${WGSNORMAL}', '${WGSNORMALBAI}'],
-    'RNAT':['${RNATUMOR}', '${RNATUMORBAI}'],
-    'TARGT':['${TARGTUMOR}', '${TARGTUMORBAI}'],
-    'TARGN':['${TARGNORMAL}', '${TARGNORMALBAI}'],
-    'LPT':['${LPTUMOR}', '${LPTUMORBAI}'],
-    'LPN':['${LPNORMAL}', '${LPNORMALBAI}'],
-    'OT':['${OTUMOR}', '${OTUMORBAI}'],
-    'ON':['${ONORMAL}', '${ONORMALBAI}'],
-    \}
+input_file_table = dict() # braces not allowed when embedded in wdl
+input_file_table['WEXT'] = ['${WEXTUMOR}', '${WEXTUMORBAI}']
+input_file_table['WEXN'] = ['${WEXNORMAL}', '${WEXNORMALBAI}']
+input_file_table['WGST'] = ['${WGSTUMOR}', '${WGSTUMORBAI}']
+input_file_table['WGSN'] = ['${WGSNORMAL}', '${WGSNORMALBAI}']
+input_file_table['RNAT'] = ['${RNATUMOR}', '${RNATUMORBAI}']
+input_file_table['TARGT'] = ['${TARGTUMOR}', '${TARGTUMORBAI}']
+input_file_table['TARGN'] = ['${TARGNORMAL}', '${TARGNORMALBAI}']
+input_file_table['LPT'] = ['${LPTUMOR}', '${LPTUMORBAI}']
+input_file_table['LPN'] = ['${LPNORMAL}', '${LPNORMALBAI}']
+input_file_table['OT'] = ['${OTUMOR}', '${OTUMORBAI}']
+input_file_table['ON'] = ['${ONORMAL}', '${ONORMALBAI}']
+    
 
-calling_file_table = \{\}
+calling_file_table = dict()
 
 cwd = os.getcwd()
 for filetype in file_table:
@@ -113,11 +114,13 @@ if calling_file_table['RNAT'] != 'None':
 
 cmd1=' --mafsnp '+ MAFSNP + ' --mafindel ' + MAFINDEL + ' --wextumor ' + calling_file_table['WEXT'] + ' --wexnormal ' + calling_file_table['WEXN'] + ' --wgstumor ' +  calling_file_table['WGST'] + ' --wgsnormal ' + calling_file_table['WGSN']
 cmd2=' --rnatumor ' + calling_file_table['RNAT'] + ' --targetedtumor ' + calling_file_table['TARGT'] + ' --targetednormal ' + calling_file_table['TARGN'] + ' --lowpasstumor ' + calling_file_table['LPT'] + ' --lowpassnormal ' + calling_file_table['LPN']  
-cmd3=' --othertumor ' + calling_file_table['OT'] + ' --othernormal ' + calling_file_table['ON'] + ' --out ' + \"${PAIRID}\" + ' --rnatype ' + RNATYPE
+cmd3=' --othertumor ' + calling_file_table['OT'] + ' --othernormal ' + calling_file_table['ON'] + ' --out ' + '${PAIRID}' + ' --rnatype ' + RNATYPE
+
 cmd='python /opt/src/mutation_validator_preprocess.py ' + cmd1 + cmd2 + cmd3
 run(cmd)
 
-cmd='mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
+
+cmd = 'mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
 --mutation.validator.preprocessed.file %s \
 --maf_file_to_annotate %s \
 --discovery_type.wgs_wex_rna_targeted ${maf_type} \
@@ -125,6 +128,8 @@ cmd='mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adapto
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
 --job.spec.memory 2'%(PREPROCESSED_FILE,MAFSNP,PAIRID)
+
+
 
 run(cmd)
 
@@ -151,9 +156,10 @@ import time
 #########################
 # end task-specific calls
 run('/opt/src/algutil/monitor_stop.py')
-"
-        echo "$python_cmd"
-        python -c "$python_cmd"
+EOF
+
+        cat pyscript.py 
+        python pyscript.py
 
     }
 
