@@ -1,5 +1,5 @@
 # Written by Hydrant
-# 2015-10-31 12:02:18
+# 2017-05-17 21:44:16
 
 name=MutationValidator
 description=Validates mutation using a preprocessed file of pull downs at all mutation sites of interest.
@@ -89,13 +89,13 @@ JVMLevel=1.6
 os=any
 pipelineModel=
 privacy=
-publicationDate=10/31/2015 12:02
+publicationDate=05/17/2017 21:44
 quality=
 requiredPatchLSIDs=
 requiredPatchURLs=
 serializedModel=
 taskType=
 userid=
-LSID=urn:lsid:broadinstitute.org:cancer.genome.analysis:10580:37
+LSID=urn:lsid:broadinstitute.org:cancer.genome.analysis:10580:39
 executor=LSF
 default.memory.gigabytes=1

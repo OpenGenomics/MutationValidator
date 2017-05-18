@@ -2,6 +2,7 @@ task mutation_validator_preprocess {
 
     #Inputs and constants defined here
     String PAIRID
+    String maf_type
     File MAF
     File? WEXTUMOR
     File? WEXNORMAL
@@ -55,135 +56,66 @@ run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"INS|DEL\"
 
 #run('mkdir -p softlinked ')
 
-run('ls -latr ')
+#run('ls -latr ')
+
+CWD = os.getcwd() 
+PAIRID = \"${PAIRID}\"
 
 MAF1=\"${MAF}\"
-MAFSNP=os.path.basename(MAF1)+'.snp.maf'
-MAFINDEL=os.path.basename(MAF1)+'.indel.maf'
+MAFSNP=os.path.join(CWD, PAIRID +'.snp.maf')
+MAFINDEL=os.path.join(CWD, PAIRID +'.indel.maf')
+PREPROCESSED_FILE = os.path.join(CWD, PAIRID +'.pileup_preprocessing.txt')  
+
+input_file_table = \{
+    'WEXT':['${WEXTUMOR}', '${WEXTUMORBAI}'],
+    'WEXN':['${WEXNORMAL}', '${WEXNORMALBAI}'],
+    'WGST':['${WGSTUMOR}', '${WGSTUMORBAI}'],
+    'WGSN':['${WGSNORMAL}', '${WGSNORMALBAI}'],
+    'RNAT':['${RNATUMOR}', '${RNATUMORBAI}'],
+    'TARGT':['${TARGTUMOR}', '${TARGTUMORBAI}'],
+    'TARGN':['${TARGNORMAL}', '${TARGNORMALBAI}'],
+    'LPT':['${LPTUMOR}', '${LPTUMORBAI}'],
+    'LPN':['${LPNORMAL}', '${LPNORMALBAI}'],
+    'OT':['${OTUMOR}', '${OTUMORBAI}'],
+    'ON':['${ONORMAL}', '${ONORMALBAI}'],
+    \}
+
+calling_file_table = \{\}
+
+cwd = os.getcwd()
+for filetype in file_table:
+    bampath = file_table[filetype][0]
+    baipath = file_table[filetype][1]
+    if bampath == '':
+        calling_file_table[filetype] = 'None'
+    else: 
+        os.symlink(bampath, filetype + '.bam')
+        os.symlink(baipath, filetype + '.bam.bai')
+        calling_file_table[filetype] = CWD + '/' + filetype + '.bam'
+
 RNATYPE='hg19'
-WEXTBAM=\"${WEXTUMOR}\"
-WEXNBAM=\"${WEXNORMAL}\"
-WGSTBAM=\"${WGSTUMOR}\"
-WGSNBAM=\"${WGSNORMAL}\"
-RNATBAM=\"${RNATUMOR}\"
-TARGTBAM=\"${TARGTUMOR}\"
-TARGNBAM=\"${TARGNORMAL}\"
-LPTBAM=\"${LPTUMOR}\"
-LPNBAM=\"${LPNORMAL}\"
-OTBAM=\"${OTUMOR}\"
-ONBAM=\"${ONORMAL}\"
-CWD = os.getcwd() 
-
-PAIRID = \"${PAIRID}\"
-PREPROCESSED_FILE = '%s.pileup_preprocessing.txt'%PAIRID
-
-if os.path.exists(WEXTBAM):
-    run('ln -sT ' + WEXTBAM + ' WEXT.bam')
-    run('ln -sT ' + \"${WEXTUMORBAI}\" + ' WEXT.bam.bai')
-    WEXTBAM = 'WEXT.bam' #os.path.basename(WEXTBAM)
-#    run('ls -latrh ' + WEXTBAM +'*')
-
-else:
-    WEXTBAM='None'
-
-if os.path.exists(WEXNBAM):
-    run('ln -sT ' + WEXNBAM + ' WEXN.bam')
-    run('ln -sT ' + \"${WEXNORMALBAI}\" + ' WEXN.bam.bai' )
-    WEXNBAM = 'WEXN.bam' #os.path.basename(WEXNBAM)
-#    run('ls -latrh ' + WEXTBAM+'*')
-else:
-    WEXNBAM='None'
-
-if os.path.exists(WGSTBAM):
-    run('ln -sT ' + WGSTBAM + ' WGST.bam')
-    run('ln -sT ' + \"${WGSTUMORBAI}\"  + '  WGST.bam.bai')
-    WGSTBAM = CWD + '/WGST.bam' #os.path.basename(WGSTBAM)
-#    run('ls -latrh ' + WGSTBAM+'*')
-else:
-    WGSTBAM='None'
-
-if os.path.exists(WGSNBAM):
-    run('ln -sT ' + WGSNBAM + ' WGSN.bam')
-    run('ln -sT ' + \"${WGSNORMALBAI}\" + ' WGSN.bam.bai')
-    WGSNBAM = CWD + '/WGSN.bam' #os.path.basename(WGSNBAM)
-#    run('ls -latrh ' + WGSNBAM+'*')
-else:
-    WGSNBAM='None'
-
-if os.path.exists(RNATBAM):
-    run('ln -sT ' + RNATBAM + ' RNAT.bam')
-    run('ln -sT ' + \"${RNATUMORBAI}\" + ' RNAT.bam.bai' )
-    RNATBAM = 'RNAT.bam'  #os.path.basename(RNATBAM)
-#    run('ls -latrh ' + RNATBAM+'*')
+if calling_file_table['RNAT'] != 'None':
     run('samtools view -H ' + RNATBAM + ' | grep SN:chr1 > RNACHECK.txt')
     with open('RNACHECK.txt', 'r') as f:
         RNACHECK_first_line = f.readline()
     if len(RNACHECK_first_line)>0:
         print('file is aligned with chr in front')
         RNATYPE='hg19-chr'
-else:
-    RNATBAM='None'
-
-if os.path.exists(TARGTBAM):
-    run('ln -sT ' + TARGTBAM + ' TARGT.bam')
-    run('ln -sT ' + \"${TARGTUMORBAI}\" + ' TARGT.bam.bai')
-    TARGTBAM = 'TARGT.bam'  #os.path.basename(TARGTBAM)
-#    run('ls -latrh ' + TARGTBAM+'*')
-else:
-    TARGTBAM='None'
-
-if os.path.exists(TARGNBAM):
-    run('ln -sT ' + TARGNBAM + ' TARGN.bam' )
-    run('ln -sT ' + \"${TARGNORMALBAI}\" + '  TARGN.bam.bai' )
-    TARGNBAM = 'TARGN.bam' #os.path.basename(TARGNBAM)
-#    run('ls -latrh ' + TARGNBAM+'*')
-else:
-    TARGNBAM='None'
-
-if False and os.path.exists(LPTBAM):
-    run('ln -sT ' + LPTBAM + ' .')
-    run('ln -sT ' + \"${LPTUMORBAI}\" + ' .' )
-    LPTBAM = os.path.basename(LPTBAM)
-#    run('ls -latrh ' + LPTBAM+'*')
-else:
-    LPTBAM='None'
-
-if False and os.path.exists(LPNBAM):
-    run('ln -sT ' + LPNBAM + ' .')
-    run('ln -sT ' + \"${LPNORMALBAI}\" + ' .')
-    LPNBAM = os.path.basename(LPNBAM)
-#    run('ls -latrh ' + LPNBAM+'*')
-else:
-    LPNBAM='None'
-
-if False and os.path.exists(OTBAM):
-    run('ln -sT ' + OTBAM + ' .')
-    run('ln -sT ' + \"${OTUMORBAI}\" + ' .')
-    OTBAM = os.path.basename(OTBAM)
-#    run('ls -latrh ' + OTBAM+'*')
-else:
-    OTBAM='None'
-
-if False and os.path.exists(ONBAM):
-    run('ln -sT ' + ONBAM + ' .')
-    run('ln -sT ' + \"${ONORMALBAI}\" + ' .')
-    ONBAM = os.path.basename(ONBAM)
-#    run('ls -latrh ' + ONBAM+'*')
-else:
-    ONBAM='None'
+    
+        
 
 
-cmd1=' --mafsnp '+ MAFSNP + ' --mafindel ' + MAFINDEL + ' --wextumor ' + WEXTBAM + ' --wexnormal ' + WEXNBAM + ' --wgstumor ' +  WGSTBAM + ' --wgsnormal ' + WGSNBAM
-cmd2=' --rnatumor ' + RNATBAM + ' --targetedtumor ' + TARGTBAM + ' --targetednormal ' + TARGNBAM + ' --lowpasstumor ' + LPTBAM + ' --lowpassnormal ' + LPNBAM 
-cmd3=' --othertumor ' + OTBAM + ' --othernormal ' + ONBAM + ' --out ' + \"${PAIRID}\" + ' --rnatype ' + RNATYPE
+
+cmd1=' --mafsnp '+ MAFSNP + ' --mafindel ' + MAFINDEL + ' --wextumor ' + calling_file_table['WEXT'] + ' --wexnormal ' + calling_file_table['WEXN'] + ' --wgstumor ' +  calling_file_table['WGST'] + ' --wgsnormal ' + calling_file_table['WGSN']
+cmd2=' --rnatumor ' + calling_file_table['RNAT'] + ' --targetedtumor ' + calling_file_table['TARGT'] + ' --targetednormal ' + calling_file_table['TARGN'] + ' --lowpasstumor ' + calling_file_table['LPT'] + ' --lowpassnormal ' + calling_file_table['LPN']  
+cmd3=' --othertumor ' + calling_file_table['OT'] + ' --othernormal ' + calling_file_table['ON'] + ' --out ' + \"${PAIRID}\" + ' --rnatype ' + RNATYPE
 cmd='python /opt/src/mutation_validator_preprocess.py ' + cmd1 + cmd2 + cmd3
-print cmd
 run(cmd)
 
 cmd='mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
---mutation.validator.preprocessed.file ../%s \
---maf_file_to_annotate ../%s \
---discovery_type.wgs_wex_rna_targeted wgs \
+--mutation.validator.preprocessed.file %s \
+--maf_file_to_annotate %s \
+--discovery_type.wgs_wex_rna_targeted ${maf_type} \
 --pair_id  %s.snp \
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
@@ -191,10 +123,10 @@ cmd='mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adapto
 
 run(cmd)
 
-cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator39 \
---mutation.validator.preprocessed.file ../%s \
---maf_file_to_annotate ../%s \
---discovery_type.wgs_wex_rna_targeted wgs \
+cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
+--mutation.validator.preprocessed.file %s \
+--maf_file_to_annotate %s \
+--discovery_type.wgs_wex_rna_targeted ${maf_type} \
 --pair_id  %s.indel \
 --print_discovery_counts  true \
 --normal_coverage_threshold  0 \
@@ -204,7 +136,7 @@ run(cmd)
 
 
 import time
-time.sleep(999999999)
+#time.sleep(999999999)
 
 
 #########################
