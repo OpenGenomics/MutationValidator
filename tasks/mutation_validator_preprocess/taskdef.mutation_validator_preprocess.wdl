@@ -191,7 +191,7 @@ cmd='mkdir snp_mv && cd snp_mv && python /opt/src/algutil/firehose_module_adapto
 
 run(cmd)
 
-cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator \
+cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_adaptor/run_module.py --module_libdir /opt/src/fh_MutationValidator39 \
 --mutation.validator.preprocessed.file ../%s \
 --maf_file_to_annotate ../%s \
 --discovery_type.wgs_wex_rna_targeted wex \
