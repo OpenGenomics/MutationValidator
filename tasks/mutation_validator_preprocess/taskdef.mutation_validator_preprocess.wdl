@@ -66,6 +66,11 @@ MAFSNP=os.path.join(CWD, PAIRID +'.snp.maf')
 MAFINDEL=os.path.join(CWD, PAIRID +'.indel.maf')
 PREPROCESSED_FILE = os.path.join(CWD, PAIRID +'.pileup_preprocessing.txt')  
 
+VALMAFSNP = os.path.join(CWD, 'snp_mv', PAIRID +'.snp.validated.maf')
+VALMAFINDEL = os.path.join(CWD, 'indel_mv', PAIRID +'.indel.validated.maf')
+
+VALMAF = os.path.join(CWD, PAIRID +'.validated.maf')
+
 input_file_table = \{
     'WEXT':['${WEXTUMOR}', '${WEXTUMORBAI}'],
     'WEXN':['${WEXNORMAL}', '${WEXNORMALBAI}'],
@@ -134,6 +139,10 @@ cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_ad
 
 run(cmd)
 
+
+cmd = 'python /opt/src/fh_tsvCatFiles/tsvcat.py %s %s > %s'%(VALMAFSNP, VALMAFINDEL, VALMAF)
+
+run(cmd)
 
 import time
 #time.sleep(999999999)

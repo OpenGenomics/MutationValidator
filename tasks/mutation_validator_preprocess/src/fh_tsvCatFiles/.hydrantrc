@@ -1,0 +1,6 @@
+[firehose]
+domain: cga
+host: firehose
+port: 8080
+task-configs: Concatenate Aggregated SNP and Indel Calls for Capture,Concatenate Aggregated SNP and Indel Calls for WGS
+workspaces: Lee_Pair_DCC_Workflow_Sandbox

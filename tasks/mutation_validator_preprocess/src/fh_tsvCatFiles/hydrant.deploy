@@ -1,0 +1,44 @@
+[task]
+
+####
+# The name of the project.  If not provided, this will default to
+# the name of the directory containing this file.
+####
+name: tsvCatFiles
+
+####
+# Module version
+####
+
+####
+# Command line to be invoked to run this job
+#
+# To reference any files that are part of this module, prefix with <libdir>.
+####
+command: python <libdir>/tsvConcatFiles.py ${f inputTSVFile1}  ${f inputTSVFile2}  ${f,o inputTSVFile3}  ${f,o inputTSVFile4}  ${f,o inputTSVFile5}  ${f,o inputTSVFile6}  --outputFilename=${t outputFilename}
+
+####
+# Task description
+####
+description: Module description.
+
+####
+# Colon separated list of directories to be included in this project
+####
+projectDirs: .:../../../../Python/util/tsvUtilsNew/tags/v1.0.4.0
+
+####
+# buildDir is the directory (relative to hydrant.deploy) where the build command will be run
+####
+#buildDir: .
+#build:
+
+####
+# directory (relative to buildDir) where executables will be stored.  Defaults to
+####
+#execDir: .
+
+[runtime]
+#executor: LSF
+#max_memory: 1
+#lsf_queue:

@@ -1,0 +1,10 @@
+Move into trunk/tags/branches paradigm.  Integrate the rest of the tsvutils suite.
+
+Example test that needs to be automated:
+ python tsvConcatListFile.py test/largeList.tsv tmp.txt >tmpOut.txt
+ 
+ ll ~/fhfs/An_LUAD/Individual_Set/PR_TCGA_LUAD_Capture/Individual/*/jobs/capture/mut/annotated_ccg_filter/*.maf.annotated
+ 
+  python tsvConcatFiles.py test/AN_TCGA_THCA_PAIR_Capture_08Oct2012.snp.oxoGv3.tcga.maf.annotated test/AN_TCGA_THCA_PAIR_Capture_08Oct2012.indel.tcga.maf.annotated --outputFilename=test/AN_THCA_testout.tsv
+  
+   python tsvConcatFiles.py test/AN_TCGA_THCA_PAIR_Capture_08Oct2012.snp.trim.maf.annotated test/AN_TCGA_THCA_PAIR_Capture_08Oct2012.indel.trim.maf.annotated --outputFilename=test/AN_THCA_trim_testout.tsv
