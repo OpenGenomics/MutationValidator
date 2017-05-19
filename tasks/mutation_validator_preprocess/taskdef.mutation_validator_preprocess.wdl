@@ -89,9 +89,9 @@ input_file_table['ON'] = ['${ONORMAL}', '${ONORMALBAI}']
 calling_file_table = dict()
 
 cwd = os.getcwd()
-for filetype in file_table:
-    bampath = file_table[filetype][0]
-    baipath = file_table[filetype][1]
+for filetype in input_file_table:
+    bampath = input_file_table[filetype][0]
+    baipath = input_file_table[filetype][1]
     if bampath == '':
         calling_file_table[filetype] = 'None'
     else: 
