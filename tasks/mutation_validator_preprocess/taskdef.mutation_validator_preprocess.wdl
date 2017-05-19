@@ -63,8 +63,9 @@ CWD = os.getcwd()
 PAIRID = '${PAIRID}'
 
 MAF1='${MAF}'
-MAFSNP=os.path.join(CWD, PAIRID +'.snp.maf')
-MAFINDEL=os.path.join(CWD, PAIRID +'.indel.maf')
+maf_basename = os.path.basename(MAF1)
+MAFSNP=os.path.join(CWD, maf_basename +'.snp.maf')
+MAFINDEL=os.path.join(CWD, maf_basename +'.indel.maf')
 PREPROCESSED_FILE = os.path.join(CWD, PAIRID +'.pileup_preprocessing.txt')  
 
 VALMAFSNP = os.path.join(CWD, 'snp_mv', PAIRID +'.snp.validated.maf')
@@ -89,9 +90,9 @@ input_file_table['ON'] = ['${ONORMAL}', '${ONORMALBAI}']
 calling_file_table = dict()
 
 cwd = os.getcwd()
-for filetype in file_table:
-    bampath = file_table[filetype][0]
-    baipath = file_table[filetype][1]
+for filetype in input_file_table:
+    bampath = input_file_table[filetype][0]
+    baipath = input_file_table[filetype][1]
     if bampath == '':
         calling_file_table[filetype] = 'None'
     else: 
