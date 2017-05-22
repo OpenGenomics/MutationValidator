@@ -1,6 +1,6 @@
 {
   "mutation_validator_preprocess_workflow.mutation_validator_preprocess.PAIRID": "THCA-L6-A4ET-TP-NB",
-  "mutation_validator_preprocess_workflow.mutation_validator_preprocess.MAF": "gs://4ccc7def-02ce-4240-aa1d-04132a9172d8/FilterWorkflow/c3fee11e-b349-4e8f-b51d-5fc03a99ba0f/call-maf_merge_task/THCA-L6-A4ET-TP.filter.union.maf",
+  "mutation_validator_preprocess_workflow.mutation_validator_preprocess.MAF": "gs://fc-9c84e685-79f8-4d84-9e52-640943257a9b/o/8a923532-48d4-456d-a3ff-767d814bbd77/FilterWorkflow/01f862a5-1239-49a5-9ab3-d66e4f2ddff3/call-maf_merge_task/THCA-L6-A4ET-TP-NB.filter.union.maf",
   "mutation_validator_preprocess_workflow.mutation_validator_preprocess.WEXNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-10A-01D-A25A-08.4.bam",
   "mutation_validator_preprocess_workflow.mutation_validator_preprocess.WEXNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-10A-01D-A25A-08.4.bam.bai",
   "mutation_validator_preprocess_workflow.mutation_validator_preprocess.WEXTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-01A-11D-A257-08.4.bam",
