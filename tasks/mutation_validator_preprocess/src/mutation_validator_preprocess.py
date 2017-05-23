@@ -174,7 +174,7 @@ def validate_indel_mut_bam_position(sample,type_bam,bam,bam_number,position_list
         tt = list(range(1,22))
         tt.append('X')
         tt.append('Y')
-#        pileup=None
+        pileup=None
         if (sample=='rna') & (len(set(pos[0]).intersection(str(tt)))>0) & (len(set(pos[0]).intersection(list('GL')))==0) & (rtype=="hg19-chr") :
             chrom = 'chr' + pos[0]
             pileup = validate_mutation(samfile, chrom, int(pos[2]),minBaseQ,pos[3])

@@ -101,7 +101,8 @@ for filetype in input_file_table:
         calling_file_table[filetype] = CWD + '/' + filetype + '.bam'
 
 RNATYPE='hg19'
-if calling_file_table['RNAT'] != 'None':
+RNATBAM = calling_file_table['RNAT']
+if RNATBAM != 'None':
     run('samtools view -H ' + RNATBAM + ' | grep SN:chr1 > RNACHECK.txt')
     with open('RNACHECK.txt', 'r') as f:
         RNACHECK_first_line = f.readline()
