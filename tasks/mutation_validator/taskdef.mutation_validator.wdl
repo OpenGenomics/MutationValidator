@@ -118,7 +118,7 @@ cmd1=' --mafsnp '+ MAFSNP + ' --mafindel ' + MAFINDEL + ' --wextumor ' + calling
 cmd2=' --rnatumor ' + calling_file_table['RNAT'] + ' --targetedtumor ' + calling_file_table['TARGT'] + ' --targetednormal ' + calling_file_table['TARGN'] + ' --lowpasstumor ' + calling_file_table['LPT'] + ' --lowpassnormal ' + calling_file_table['LPN']  
 cmd3=' --othertumor ' + calling_file_table['OT'] + ' --othernormal ' + calling_file_table['ON'] + ' --out ' + '${PAIRID}' + ' --rnatype ' + RNATYPE
 
-cmd='python /opt/src/mutation_validator_preprocess.py ' + cmd1 + cmd2 + cmd3
+cmd='python /opt/src/fh_MutationValidatorPreprocess/validation_wrapper_firehose_library_hack.py ' + cmd1 + cmd2 + cmd3
 run(cmd)
 
 

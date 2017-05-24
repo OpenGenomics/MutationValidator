@@ -1,5 +1,5 @@
 # Written by Hydrant
-# 2015-10-21 00:15:48
+# 2016-04-14 07:37:33
 
 name=MutationValidatorPreprocess
 description=Preprocessing step for mutation validator. Provides pull down counts for all input bam files for sites of interest.
@@ -161,18 +161,29 @@ p14_TYPE=
 p14_type=java.lang.String
 p14_value=
 
+p15_name=job.spec.memory
+p15_description=
+p15_default_value=
+p15_fileFormat=
+p15_optional=
+p15_prefix_when_specified=
+p15_MODE=
+p15_TYPE=
+p15_type=java.lang.String
+p15_value=
+
 cpuType=any
 JVMLevel=1.6
 os=any
 pipelineModel=
 privacy=
-publicationDate=10/21/2015 00:15
+publicationDate=04/14/2016 07:37
 quality=
 requiredPatchLSIDs=
 requiredPatchURLs=
 serializedModel=
 taskType=
 userid=
-LSID=urn:lsid:broadinstitute.org:cancer.genome.analysis:10578:56
+LSID=urn:lsid:broadinstitute.org:cancer.genome.analysis:10578:58
 executor=LSF
 default.memory.gigabytes=1

@@ -46,3 +46,4 @@ projectDirs: .
 #executor: LSF
 #max_memory: 1
 #lsf_queue:
+[job.spec.memory]

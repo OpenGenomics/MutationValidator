@@ -129,7 +129,7 @@ def validate_mutation(bam_file,chrom,position,minBaseQ,Variant_Type):
                         cnt = position_to_ins_del(pileupread.alignment.pos,position,pileupread.alignment.cigar)
                         if str(cnt) == "1":
                             ins_counts += 1
-        # count DELs, and SNPS here 
+        # count DELs, and SNPS here
         if pileupcolumn.pos == position-1:
             bases = []
             #indel_counts = 0
@@ -174,6 +174,7 @@ def validate_indel_mut_bam_position(sample,type_bam,bam,bam_number,position_list
         tt = list(range(1,22))
         tt.append('X')
         tt.append('Y')
+        pileup=None
         if (sample=='rna') & (len(set(pos[0]).intersection(str(tt)))>0) & (len(set(pos[0]).intersection(list('GL')))==0) & (rtype=="hg19-chr") :
             chrom = 'chr' + pos[0]
             pileup = validate_mutation(samfile, chrom, int(pos[2]),minBaseQ,pos[3])
