@@ -172,7 +172,7 @@ EOF
     }
 
     runtime {
-        docker : "docker.io/breadinstitute/mutation_validator:1"
+        docker : "docker.io/broadinstitute/mutation_validator:1"
         memory: "${ram_gb}GB"
         cpu: "${cpu_cores}"
         disks: "local-disk ${output_disk_gb} HDD"
