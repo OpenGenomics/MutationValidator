@@ -1,0 +1,19 @@
+{
+  "mutation_validator_workflow.mutation_validator.PAIRID": "THCA-L6-A4ET-TP-NB",
+  "mutation_validator_workflow.mutation_validator.maf_type": "wgs",
+  "mutation_validator_workflow.mutation_validator.MAF": "gs://fc-9c84e685-79f8-4d84-9e52-640943257a9b/8a923532-48d4-456d-a3ff-767d814bbd77/FilterWorkflow/01f862a5-1239-49a5-9ab3-d66e4f2ddff3/call-maf_merge_task/THCA-L6-A4ET-TP-NB.filter.union.maf",
+  "mutation_validator_workflow.mutation_validator.WEXNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-10A-01D-A25A-08.4.bam",
+  "mutation_validator_workflow.mutation_validator.WEXNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-10A-01D-A25A-08.4.bam.bai",
+  "mutation_validator_workflow.mutation_validator.WEXTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-01A-11D-A257-08.4.bam",
+  "mutation_validator_workflow.mutation_validator.WEXTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WXS/BI/ILLUMINA/C499.TCGA-L6-A4ET-01A-11D-A257-08.4.bam.bai",
+  "mutation_validator_workflow.mutation_validator.WGSNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WGS/BI/ILLUMINA/G49537.TCGA-L6-A4ET-10A-01D-A25A-08.2.bam",
+  "mutation_validator_workflow.mutation_validator.WGSNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WGS/BI/ILLUMINA/G49537.TCGA-L6-A4ET-10A-01D-A25A-08.2.bam.bai",
+  "mutation_validator_workflow.mutation_validator.WGSTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WGS/BI/ILLUMINA/G49537.TCGA-L6-A4ET-01A-11D-A257-08.2.bam",
+  "mutation_validator_workflow.mutation_validator.WGSTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/WGS/BI/ILLUMINA/G49537.TCGA-L6-A4ET-01A-11D-A257-08.2.bam.bai",
+  "mutation_validator_workflow.mutation_validator.RNATUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_1911052.4fe8f85b-b46a-4e29-b152-8f46cfbd09ae.sorted_genome_alignments.bam",
+  "mutation_validator_workflow.mutation_validator.RNATUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_1911052.4fe8f85b-b46a-4e29-b152-8f46cfbd09ae.sorted_genome_alignments.bam.bai",
+  "mutation_validator_workflow.mutation_validator.TARGTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/VALIDATION/BI/ILLUMINA/C1635.TCGA-L6-A4ET-01A-11D-A257-08.1.bam",
+  "mutation_validator_workflow.mutation_validator.TARGTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/THCA/DNA/VALIDATION/BI/ILLUMINA/C1635.TCGA-L6-A4ET-01A-11D-A257-08.1.bam.bai",
+  "mutation_validator_workflow.mutation_validator.output_disk_gb": "50",
+  "mutation_validator_workflow.mutation_validator.preemption": "2"
+}

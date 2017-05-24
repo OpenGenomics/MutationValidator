@@ -1,0 +1,11 @@
+{
+  "mutation_validator_workflow.mutation_validator.PAIRID": "HCC1143_chr21",
+  "mutation_validator_workflow.mutation_validator.maf_type": "wgs",
+  "mutation_validator_workflow.mutation_validator.MAF": "gs://fc-9c84e685-79f8-4d84-9e52-640943257a9b/9bb0ebad-357f-4fd7-8b4d-8fd3ed9fe359/m1m2SM_vcf2maf_oncotate_workflow/a46c875b-b0c8-49ae-9e0c-7c1142131481/call-oncotator_minimal/HCC1143_chr21.maf",
+  "mutation_validator_workflow.mutation_validator.WGSNORMAL": "gs://firecloud-tcga-open-access/tutorial/bams/C835.HCC1143_BL.4.chr21.bam",
+  "mutation_validator_workflow.mutation_validator.WGSNORMALBAI": "gs://firecloud-tcga-open-access/tutorial/bams/C835.HCC1143_BL.4.chr21.bam.bai",
+  "mutation_validator_workflow.mutation_validator.WGSTUMOR": "gs://firecloud-tcga-open-access/tutorial/bams/C835.HCC1143.2.chr21.bam",
+  "mutation_validator_workflow.mutation_validator.WGSTUMORBAI": "gs://firecloud-tcga-open-access/tutorial/bams/C835.HCC1143.2.chr21.bam.bai",
+  "mutation_validator_workflow.mutation_validator.output_disk_gb": "50",
+  "mutation_validator_workflow.mutation_validator.preemption": "2"
+}

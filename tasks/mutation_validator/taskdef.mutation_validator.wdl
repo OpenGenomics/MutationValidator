@@ -1,4 +1,4 @@
-task mutation_validator_preprocess {
+task mutation_validator {
 
     #Inputs and constants defined here
     String PAIRID
@@ -167,13 +167,12 @@ EOF
 
     output {
         File pileup_preprocessing_txt="${PAIRID}.pileup_preprocessing.txt"
-        File validated_snp_maf="snp_mv/${PAIRID}.snp.validated.maf"
-        File validated_indel_maf="indel_mv/${PAIRID}.indel.validated.maf"
+        File validated_maf="${PAIRID}.validated.maf"
         File dstat_log="dstat.log"
     }
 
     runtime {
-        docker : "docker.io/stewart/mutation_validator_preprocess:1"
+        docker : "docker.io/breadinstitute/mutation_validator:1"
         memory: "${ram_gb}GB"
         cpu: "${cpu_cores}"
         disks: "local-disk ${output_disk_gb} HDD"
@@ -189,6 +188,6 @@ EOF
 
 }
 
-workflow mutation_validator_preprocess_workflow {
-    call mutation_validator_preprocess
+workflow mutation_validator_workflow {
+    call mutation_validator
 }

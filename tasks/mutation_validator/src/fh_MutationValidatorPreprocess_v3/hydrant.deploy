@@ -1,0 +1,47 @@
+[task]
+
+
+author:esther
+
+name:MutationValidatorPreprocess_v3
+
+installTarget=firehose
+
+
+# made a copy so additional bams could be optional rather than required
+
+####
+# Command line to be invoked to run this job
+#
+# To reference any files that are part of this module, prefix with <libdir>.
+####
+#command: python <libdir>script.py ${param1} ${param2}
+
+command: sh <libdir>wrapper.sh <libdir> ${t maf.file.snp} ${t maf.file.indel} ${t wex.tumor.bam} ${t wex.normal.bam} ${t,o wgs.tumor.bam} ${t,o wgs.normal.bam} ${t,o rna.tumor.bam} ${t,o targeted.tumor.bam} ${t,o targeted.normal.bam} ${t,o lowpass.tumor.bam} ${t,o lowpass.normal.bam} ${t,o other.tumor.bam} ${t,o other.normal.bam} ${t pair.id} #had to make a wrapper to make a use statement for firehose environment. 
+
+
+####
+# Task description
+####
+description: Module description.
+
+####
+# Colon separated list of directories to be included in this project
+####
+projectDirs: .
+
+####
+# buildDir is the directory (relative to hydrant.deploy) where the build command will be run
+####
+#buildDir: .
+#build:
+
+####
+# directory (relative to buildDir) where executables will be stored.  Defaults to current working directory
+####
+#execDir: .
+
+[runtime]
+#executor: LSF
+#max_memory: 1
+

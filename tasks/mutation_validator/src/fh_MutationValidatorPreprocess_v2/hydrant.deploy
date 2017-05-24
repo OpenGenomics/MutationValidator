@@ -1,0 +1,46 @@
+[task]
+
+####
+# The name of the project.  If not provided, this will default to
+# the name of the directory containing this file.
+####
+name: MutationValidatorPreprocess_v2
+installTarget=firehose
+
+####
+# Module version
+####
+
+####
+# Command line to be invoked to run this job
+#
+# To reference any files that are part of this module, prefix with <libdir>.
+####
+command: python <libdir>validation_wrapper.py ${t,o "--mafsnp " maf.file.snp} ${t,o "--mafindel " maf.file.indel} ${t,o "--wextumor " wex.tumor.bam} ${t,o "--wexnormal " wex.normal.bam} ${t,o "--wgstumor " wgs.tumor.bam} ${t,o "--wgsnormal " wgs.normal.bam} ${t,o "--rnatumor " rna.tumor.bam} ${t,o "--targetedtumor " targeted.tumor.bam} ${t,o "--targetednormal " targeted.normal.bam} ${t,o "--lowpasstumor " lowpass.tumor.bam} ${t,o "--lowpassnormal " lowpass.normal.bam} ${t,o "--othertumor " other.tumor.bam} ${t,o "--othernormal " other.normal.bam} ${t,o "--out " pair.id}
+
+####
+# Task description
+####
+description: Preprocessing step for mutation validator. Provides pull down counts for all input bam files for sites of interest.
+author: mara
+
+####
+# Colon separated list of directories to be included in this project
+####
+projectDirs: .
+
+####
+# buildDir is the directory (relative to hydrant.deploy) where the build command will be run
+####
+#buildDir: .
+#build:
+
+####
+# directory (relative to buildDir) where executables will be stored.  Defaults to
+####
+#execDir: .
+
+[runtime]
+#executor: LSF
+#max_memory: 1
+#lsf_queue:
