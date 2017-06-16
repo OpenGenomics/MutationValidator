@@ -93,7 +93,7 @@ cwd = os.getcwd()
 for filetype in input_file_table:
     bampath = input_file_table[filetype][0]
     baipath = input_file_table[filetype][1]
-    if bampath == '':
+    if bampath == '' or bampath.endswith('NULL'):
         calling_file_table[filetype] = 'None'
     else: 
         os.symlink(bampath, filetype + '.bam')
