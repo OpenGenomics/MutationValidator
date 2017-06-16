@@ -1,0 +1,15 @@
+{
+  "mutation_validator_workflow.mutation_validator.PAIRID": "SKCM-FS_A1ZR-TP-NB",
+  "mutation_validator_workflow.mutation_validator.maf_type": "wex",
+  "mutation_validator_workflow.mutation_validator.MAF": "gs://fc-e5920d62-ed56-47ed-8a61-bf1cac042c69/mc3_controlled_mafs/mc3.v0.2.8.CONTROLLED.SKCM-FS-A1ZR-TM-NB.maf",
+  "mutation_validator_workflow.mutation_validator.WEXNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/DNA/WXS/BI/ILLUMINA/TCGA_MC3.TCGA-OR-A5J1-10A-01D-A29L-10.bam",
+  "mutation_validator_workflow.mutation_validator.WEXNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/DNA/WXS/BI/ILLUMINA/TCGA_MC3.TCGA-OR-A5J1-10A-01D-A29L-10.bam.bai",
+  "mutation_validator_workflow.mutation_validator.WEXTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/DNA/WXS/BI/ILLUMINA/TCGA_MC3.TCGA-OR-A5J1-01A-11D-A29I-10.bam",
+  "mutation_validator_workflow.mutation_validator.WEXTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/DNA/WXS/BI/ILLUMINA/TCGA_MC3.TCGA-OR-A5J1-01A-11D-A29I-10.bam.bai",
+  "mutation_validator_workflow.mutation_validator.RNATUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_2145969.37e88158-0743-45b8-87cf-1d7fe878527f.sorted_genome_alignments.bam",
+  "mutation_validator_workflow.mutation_validator.RNATUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_2145969.37e88158-0743-45b8-87cf-1d7fe878527f.sorted_genome_alignments.bam.bai",
+  "mutation_validator_workflow.mutation_validator.TARGTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/DNA/VALIDATION/BCM/ILLUMINA/TCGA-OR-A5J1-01A-11D-A29I-10_Illumina_validation.bam",
+  "mutation_validator_workflow.mutation_validator.TARGTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/ACC/DNA/VALIDATION/BCM/ILLUMINA/TCGA-OR-A5J1-01A-11D-A29I-10_Illumina_validation.bam.bai",
+  "mutation_validator_workflow.mutation_validator.output_disk_gb": "50",
+  "mutation_validator_workflow.mutation_validator.preemption": "2"
+}
