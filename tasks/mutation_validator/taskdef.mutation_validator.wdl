@@ -49,11 +49,13 @@ run('/opt/src/algutil/monitor_start.py')
 # start task-specific calls
 ##########################
 
+run('python /opt/src/convert_maf_dialect.py \"${MAF}\" input_variants.maf Broad')
+
 # split MAF into INDELs and SNPs
 
-run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"SNP|DNP|TNP|MNP\" -e .snp.maf')
+run('python /opt/src/filter_tsv.py -i input_variants.maf  -f Variant_Type -v \"SNP|DNP|TNP|MNP\" -e .snp.maf')
 
-run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"INS|DEL\" -e .indel.maf')
+run('python /opt/src/filter_tsv.py -i input_variants.maf  -f Variant_Type -v \"INS|DEL\" -e .indel.maf')
 
 #run('mkdir -p softlinked ')
 
@@ -62,8 +64,7 @@ run('python /opt/src/filter_tsv.py -i \"${MAF}\"  -f Variant_Type -v \"INS|DEL\"
 CWD = os.getcwd() 
 PAIRID = '${PAIRID}'
 
-MAF1='${MAF}'
-maf_basename = os.path.basename(MAF1)
+maf_basename = 'input_variants'
 MAFSNP=os.path.join(CWD, maf_basename +'.snp.maf')
 MAFINDEL=os.path.join(CWD, maf_basename +'.indel.maf')
 PREPROCESSED_FILE = os.path.join(CWD, PAIRID +'.pileup_preprocessing.txt')  
@@ -147,9 +148,12 @@ cmd='mkdir indel_mv && cd indel_mv && python /opt/src/algutil/firehose_module_ad
 run(cmd)
 
 
-cmd = 'python /opt/src/fh_tsvCatFiles/tsvcat.py %s %s > %s'%(VALMAFSNP, VALMAFINDEL, VALMAF)
+cmd = 'python /opt/src/fh_tsvCatFiles/tsvcat.py %s %s > %s'%(VALMAFSNP, VALMAFINDEL, VALMAF + '.tmp')
 
 run(cmd)
+
+run('python /opt/src/convert_maf_dialect.py %s %s TCGA'%(VALMAF + '.tmp',VALMAF ))
+
 
 import time
 #time.sleep(999999999)
