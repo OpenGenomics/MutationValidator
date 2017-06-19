@@ -28,7 +28,7 @@ task mutation_validator {
     File? ONORMALBAI
 
     String output_disk_gb
-    String boot_disk_gb = "1000"
+    String boot_disk_gb = "10"
     String ram_gb = "8"
     String cpu_cores = "2"
     String preemption
