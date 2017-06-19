@@ -15,6 +15,16 @@
   "mutation_validator_workflow.mutation_validator.LPTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam",
   "mutation_validator_workflow.mutation_validator.LPTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam.bai",
   "mutation_validator_workflow.mutation_validator.output_disk_gb": "50",
-  "mutation_validator_workflow.mutation_validator.preemption": "2"
+  "mutation_validator_workflow.mutation_validator.preemption": "2",
+
+  "mutation_validator_workflow.mutation_validator.ONORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.TARGNORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.WGSTUMORBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.OTUMORBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.ONORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.OTUMOR": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.WGSTUMOR": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.TARGNORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL"
+
 }
 
