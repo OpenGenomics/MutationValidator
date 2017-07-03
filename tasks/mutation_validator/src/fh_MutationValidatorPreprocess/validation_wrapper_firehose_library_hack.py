@@ -192,7 +192,7 @@ def validate_indel_mut_bam_position(sample,type_bam,bam,bam_number,position_list
 ####################################
 
 #Convert input maf files to position lists:
-
+print('starting mutation validator preprocess')
 print(args.mafsnp)
 print(args.mafindel)
 print(args.minBaseQ)
