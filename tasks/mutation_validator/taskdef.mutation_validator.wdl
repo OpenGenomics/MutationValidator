@@ -64,7 +64,7 @@ run('python /opt/src/filter_tsv.py -i input_variants.maf  -f Variant_Type -v \"I
 CWD = os.getcwd() 
 PAIRID = '${PAIRID}'
 
-maf_basename = 'input_variants'
+maf_basename = 'input_variants.maf'
 MAFSNP=os.path.join(CWD, maf_basename +'.snp.maf')
 MAFINDEL=os.path.join(CWD, maf_basename +'.indel.maf')
 PREPROCESSED_FILE = os.path.join(CWD, PAIRID +'.pileup_preprocessing.txt')  
