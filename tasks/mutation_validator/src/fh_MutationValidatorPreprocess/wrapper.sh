@@ -1,11 +1,11 @@
 #!/bin/sh
 
-. /broad/tools/scripts/useuse
+#. /broad/tools/scripts/useuse
 
 
 
-use .zlib-1.2.6 #having to make this wrapper and hack a new python version because firehose needed this specific use statement and then optional arguments became a pain. :(
-use Samtools
+#use .zlib-1.2.6 #having to make this wrapper and hack a new python version because firehose needed this specific use statement and then optional arguments became a pain. :(
+#use Samtools
 #use .samtools-0.1.9
 
 #unuse .python-2.7.1-sqlite3-rtrees

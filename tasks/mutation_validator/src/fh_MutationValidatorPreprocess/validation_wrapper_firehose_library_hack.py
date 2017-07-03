@@ -48,7 +48,8 @@ def maf_to_position(filename): #convert maf to a position file with Chromosome, 
         fullfile = csv.reader(csvfile, delimiter='\t')
         for line in fullfile:
             #print(line)
-            if len(line[0])>0 and line[0][0]!='#':
+            #tolerate empty gene names
+            if len(line[0])==0 or line[0][0]!='#':
                 if count==0:
                     header=line
                     ind = [int(i) for i, x in enumerate(header) if x in columns_care]
