@@ -1,30 +1,35 @@
 {
-  "mutation_validator_workflow.mutation_validator.PAIRID": "SKCM-FS_A1ZR-TP-NB",
-  "mutation_validator_workflow.mutation_validator.maf_type": "wex",
+  "mutation_validator_workflow.mutation_validator.LPNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam",
+
+  "mutation_validator_workflow.mutation_validator.LPNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam.bai",
+  "mutation_validator_workflow.mutation_validator.LPTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam",
+
+  "mutation_validator_workflow.mutation_validator.LPTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam.bai",
+
   "mutation_validator_workflow.mutation_validator.MAF": "gs://fc-e5920d62-ed56-47ed-8a61-bf1cac042c69/mc3_controlled_mafs/mc3.v0.2.8.CONTROLLED.SKCM-FS-A1ZR-TM-NB.maf",
+  "mutation_validator_workflow.mutation_validator.ONORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.ONORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.OTUMOR": ""gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.OTUMORBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.PAIRID": "SKCM-FS_A1ZR-TP-NB",
+  "mutation_validator_workflow.mutation_validator.RNATUMOR": ""gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_1034446.c67a7631-4bbf-4bee-9743-0e470d0bdf86.sorted_genome_alignments.bam",
+
+  "mutation_validator_workflow.mutation_validator.RNATUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_1034446.c67a7631-4bbf-4bee-9743-0e470d0bdf86.sorted_genome_alignments.bam.bai",
+
+  "mutation_validator_workflow.mutation_validator.TARGNORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL"
+  "mutation_validator_workflow.mutation_validator.TARGNORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL"
+  "mutation_validator_workflow.mutation_validator.TARGTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/VALIDATION/BI/ILLUMINA/C1740.TCGA-FS-A1ZR-06A-21D-A197-08.1.bam",
+  "mutation_validator_workflow.mutation_validator.TARGTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/VALIDATION/BI/ILLUMINA/C1740.TCGA-FS-A1ZR-06A-21D-A197-08.1.bam.bai",
+
   "mutation_validator_workflow.mutation_validator.WEXNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WXS/BI/ILLUMINA/C828.TCGA-FS-A1ZR-10A-01D-A199-08.2.bam",
   "mutation_validator_workflow.mutation_validator.WEXNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WXS/BI/ILLUMINA/C828.TCGA-FS-A1ZR-10A-01D-A199-08.2.bam.bai",
   "mutation_validator_workflow.mutation_validator.WEXTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WXS/BI/ILLUMINA/C828.TCGA-FS-A1ZR-06A-21D-A197-08.2.bam",
   "mutation_validator_workflow.mutation_validator.WEXTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WXS/BI/ILLUMINA/C828.TCGA-FS-A1ZR-06A-21D-A197-08.2.bam.bai",
-  "mutation_validator_workflow.mutation_validator.RNATUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_1034446.c67a7631-4bbf-4bee-9743-0e470d0bdf86.sorted_genome_alignments.bam",
-  "mutation_validator_workflow.mutation_validator.RNATUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/UNCID_1034446.c67a7631-4bbf-4bee-9743-0e470d0bdf86.sorted_genome_alignments.bam.bai",
-  "mutation_validator_workflow.mutation_validator.TARGTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/VALIDATION/BI/ILLUMINA/C1740.TCGA-FS-A1ZR-06A-21D-A197-08.1.bam",
-  "mutation_validator_workflow.mutation_validator.TARGTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/VALIDATION/BI/ILLUMINA/C1740.TCGA-FS-A1ZR-06A-21D-A197-08.1.bam.bai",
-  "mutation_validator_workflow.mutation_validator.LPNORMAL": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam",
-  "mutation_validator_workflow.mutation_validator.LPNORMALBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam.bai",
-  "mutation_validator_workflow.mutation_validator.LPTUMOR": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam",
-  "mutation_validator_workflow.mutation_validator.LPTUMORBAI": "gs://5aa919de-0aa0-43ec-9ec3-288481102b6d/tcga/SKCM/DNA/WGS/HMS-RK/ILLUMINA/TCGA-FS-A1ZR-06A-21D-A18Y_120602_SN208_0304_BC0WTWACXX_s_7_rg.sorted.bam.bai",
+  "mutation_validator_workflow.mutation_validator.WGSNORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.WGSNORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.WGSTUMOR": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.WGSTUMORBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
+  "mutation_validator_workflow.mutation_validator.maf_type": "wex",
   "mutation_validator_workflow.mutation_validator.output_disk_gb": "50",
   "mutation_validator_workflow.mutation_validator.preemption": "2",
-
-  "mutation_validator_workflow.mutation_validator.ONORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.TARGNORMALBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.WGSTUMORBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.OTUMORBAI": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.ONORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.OTUMOR": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.WGSTUMOR": "gs://broad-institute-gdac/GDAC_FC_NULL",
-  "mutation_validator_workflow.mutation_validator.TARGNORMAL": "gs://broad-institute-gdac/GDAC_FC_NULL"
-
 }
-
