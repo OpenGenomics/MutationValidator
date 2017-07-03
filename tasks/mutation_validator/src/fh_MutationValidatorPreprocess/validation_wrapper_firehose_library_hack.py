@@ -52,7 +52,7 @@ def maf_to_position(filename): #convert maf to a position file with Chromosome, 
                     header=line
                     ind = [int(i) for i, x in enumerate(header) if x in columns_care]
                     if len(ind)!=4:
-                        print('Maf file must contain the following headers: Chromosome, Start_position, End_position, Variant_Type') #FIX THIS TO THROW ERROR!
+                        raise Exception('Maf file must contain the following headers: Chromosome, Start_position, End_position, Variant_Type') #FIX THIS TO THROW ERROR!
                         exit()
                     count = 1
                 else:

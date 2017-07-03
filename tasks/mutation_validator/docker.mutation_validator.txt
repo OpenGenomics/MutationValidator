@@ -28,6 +28,9 @@ RUN pip install numpy scipy pysam cython
 RUN pip install h5py pandas ArgumentParser 
 RUN pip install lxml
 
+#install nano before matlab
+RUN apt-get install -y nano
+
 #install matlab 2012a mcr
 
 RUN apt-get update 

@@ -16,11 +16,11 @@ while line.startswith('#'):
     line = ifid.readline()
 
 if maf_dialect == 'TCGA':
-    line.replace('Start_position','Start_Position')
-    line.replace('End_position','End_Position')
+    line = line.replace('Start_position','Start_Position')
+    line = line.replace('End_position','End_Position')
 elif maf_dialect == 'Broad':
-    line.replace('Start_Position','Start_position')
-    line.replace('End_Position','End_position')
+    line = line.replace('Start_Position','Start_position')
+    line = line.replace('End_Position','End_position')
 else:
     raise Exception('maf_dialect must be TCGA or Broad')
 
