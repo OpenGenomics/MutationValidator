@@ -62,7 +62,7 @@ task mutation_validator {
 
     Float total_file_size_float = S_MAF +S_WEXTUMOR +S_WEXNORMAL+S_WEXTUMORBAI+S_WEXNORMALBAI+S_WGSTUMOR+S_WGSNORMAL+S_WGSTUMORBAI+S_WGSNORMALBAI+S_RNATUMOR+
         S_RNATUMORBAI+S_TARGTUMOR+S_TARGNORMAL+S_TARGTUMORBAI+S_TARGNORMALBAI+S_LPTUMOR+S_LPNORMAL+S_LPTUMORBAI+S_LPNORMALBAI+S_OTUMOR+S_ONORMAL+S_OTUMORBAI+S_ONORMALBAI
-    Float disk_size_float = (total_file_size_float + 10e9) / 1e9
+    Float disk_size_float = (total_file_size_float / 1000000000) + 10
     String s = disk_size_float
     String string_before_decimal = sub(s, "\\..*", "")
     String output_disk_gb = string_before_decimal
