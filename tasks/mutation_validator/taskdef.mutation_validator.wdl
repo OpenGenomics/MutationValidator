@@ -37,7 +37,7 @@ task mutation_validator {
 
 
     Float S_MAF = size(MAF)
-    Float S_WEXTUMOR = size(WEXTUMOR)
+    Float S_WEXTUMOR = size(${WEXTUMOR})
     Float S_WEXNORMAL = size(WEXNORMAL)
     Float S_WEXTUMORBAI = size(WEXTUMORBAI)
     Float S_WEXNORMALBAI = size(WEXNORMALBAI)
