@@ -58,7 +58,7 @@ def maf_to_position(filename): #convert maf to a position file with Chromosome, 
                         exit()
                     count = 1
                 else:
-                    if line[ind[0]]=='M':
+                    if line[ind[0]] in ('M','MT'):
                         print('Removing all mitochondria sites')
                     else:
                         pos.append([line[i] for i in ind])
