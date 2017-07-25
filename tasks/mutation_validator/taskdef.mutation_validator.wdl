@@ -29,45 +29,45 @@ task mutation_validator {
 
     #String output_disk_gb
     String boot_disk_gb = "10"
-    String ram_gb = "2"
+    String ram_gb = "6"
     String cpu_cores = "1"
     String preemption
 
     # compute output_disk_gb
 
 
-    Float S_MAF = size(MAF)
-    Float S_WEXTUMOR = size(${WEXTUMOR})
-    Float S_WEXNORMAL = size(WEXNORMAL)
-    Float S_WEXTUMORBAI = size(WEXTUMORBAI)
-    Float S_WEXNORMALBAI = size(WEXNORMALBAI)
-    Float S_WGSTUMOR = size(WGSTUMOR)
-    Float S_WGSNORMAL = size(WGSNORMAL)
-    Float S_WGSTUMORBAI = size(WGSTUMORBAI)
-    Float S_WGSNORMALBAI = size(WGSNORMALBAI)
-    Float S_RNATUMOR = size(RNATUMOR)
-    Float S_RNATUMORBAI = size(RNATUMORBAI)
-    Float S_TARGTUMOR = size(TARGTUMOR)
-    Float S_TARGNORMAL = size(TARGNORMAL)
-    Float S_TARGTUMORBAI = size(TARGTUMORBAI)
-    Float S_TARGNORMALBAI = size(TARGNORMALBAI)
-    Float S_LPTUMOR = size(LPTUMOR)
-    Float S_LPNORMAL = size(LPNORMAL)
-    Float S_LPTUMORBAI = size(LPTUMORBAI)
-    Float S_LPNORMALBAI = size(LPNORMALBAI)
-    Float S_OTUMOR = size(OTUMOR)
-    Float S_ONORMAL = size(ONORMAL)
-    Float S_OTUMORBAI = size(OTUMORBAI)
-    Float S_ONORMALBAI = size(ONORMALBAI)
+#    Float S_MAF = size(MAF)
+#    Float S_WEXTUMOR = size(${WEXTUMOR})
+#    Float S_WEXNORMAL = size(WEXNORMAL)
+#    Float S_WEXTUMORBAI = size(WEXTUMORBAI)
+#    Float S_WEXNORMALBAI = size(WEXNORMALBAI)
+#    Float S_WGSTUMOR = size(WGSTUMOR)
+#    Float S_WGSNORMAL = size(WGSNORMAL)
+#    Float S_WGSTUMORBAI = size(WGSTUMORBAI)
+#    Float S_WGSNORMALBAI = size(WGSNORMALBAI)
+#    Float S_RNATUMOR = size(RNATUMOR)
+#    Float S_RNATUMORBAI = size(RNATUMORBAI)
+#    Float S_TARGTUMOR = size(TARGTUMOR)
+#    Float S_TARGNORMAL = size(TARGNORMAL)
+#    Float S_TARGTUMORBAI = size(TARGTUMORBAI)
+#    Float S_TARGNORMALBAI = size(TARGNORMALBAI)
+#    Float S_LPTUMOR = size(LPTUMOR)
+#    Float S_LPNORMAL = size(LPNORMAL)
+#    Float S_LPTUMORBAI = size(LPTUMORBAI)
+#    Float S_LPNORMALBAI = size(LPNORMALBAI)
+#    Float S_OTUMOR = size(OTUMOR)
+#    Float S_ONORMAL = size(ONORMAL)
+#    Float S_OTUMORBAI = size(OTUMORBAI)
+#    Float S_ONORMALBAI = size(ONORMALBAI)
 
-    Float total_file_size_float = S_MAF +S_WEXTUMOR +S_WEXNORMAL+S_WEXTUMORBAI+S_WEXNORMALBAI+S_WGSTUMOR+S_WGSNORMAL+S_WGSTUMORBAI+S_WGSNORMALBAI+S_RNATUMOR+
-        S_RNATUMORBAI+S_TARGTUMOR+S_TARGNORMAL+S_TARGTUMORBAI+S_TARGNORMALBAI+S_LPTUMOR+S_LPNORMAL+S_LPTUMORBAI+S_LPNORMALBAI+S_OTUMOR+S_ONORMAL+S_OTUMORBAI+S_ONORMALBAI
-    Float disk_size_float = (total_file_size_float / 1000000000) + 10
-    String s = disk_size_float
-    String string_before_decimal = sub(s, "\\..*", "")
-    String output_disk_gb = string_before_decimal
+#    Float total_file_size_float = S_MAF +S_WEXTUMOR +S_WEXNORMAL+S_WEXTUMORBAI+S_WEXNORMALBAI+S_WGSTUMOR+S_WGSNORMAL+S_WGSTUMORBAI+S_WGSNORMALBAI+S_RNATUMOR+
+#        S_RNATUMORBAI+S_TARGTUMOR+S_TARGNORMAL+S_TARGTUMORBAI+S_TARGNORMALBAI+S_LPTUMOR+S_LPNORMAL+S_LPTUMORBAI+S_LPNORMALBAI+S_OTUMOR+S_ONORMAL+S_OTUMORBAI+S_ONORMALBAI
+#    Float disk_size_float = (total_file_size_float / 1000000000) + 10
+#    String s = disk_size_float
+#    String string_before_decimal = sub(s, "\\..*", "")
+#    String output_disk_gb = string_before_decimal
     #Int disk_size_int = string_before_decimal
-
+String output_disk_gb = "foo"
 
 
 
@@ -218,7 +218,7 @@ EOF
     }
 
     runtime {
-        docker : "docker.io/gsaksena/mutation_validator:1"
+        docker : "gsaksena/mutation_validator:1"
         memory: "${ram_gb}GB"
         cpu: "${cpu_cores}"
         disks: "local-disk ${output_disk_gb} HDD"
