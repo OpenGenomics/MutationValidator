@@ -1,0 +1,4 @@
+{
+  "mutation_validator_postprocess_workflow.mutation_validator_postprocess.output_disk_gb": "10",
+  "mutation_validator_postprocess_workflow.mutation_validator_postprocess.input_maf": "gs://fc-e5920d62-ed56-47ed-8a61-bf1cac042c69/fd66e549-c03f-4188-84d4-7b9ef00772b0/mutation_validator_workflow/ccada6a8-aca8-48f1-ba3d-17d2ddad81a1/call-mutation_validator/GBM-06-0124-TP-NB.validated.maf"
+}
