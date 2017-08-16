@@ -10,9 +10,14 @@ ifid = open(input_maf_fn)
 dictreader = csv.DictReader(ifid, dialect='excel-tab')
 
 input_fieldnames = dictreader.fieldnames
+old_output_fieldnames = []
 new_output_fieldnames = []
 validation_data_types = []
 for fieldname in input_fieldnames:
+    
+    if fieldname.startswith('discovery_'):
+        continue
+    old_output_fieldnames.append(fieldname)
     if fieldname.startswith('validation_judgement'):
         fieldname_list = fieldname.split('_')
         data_type = fieldname_list[-1]
@@ -20,7 +25,7 @@ for fieldname in input_fieldnames:
         new_fieldname = 'mutval_status_' + data_type
         new_output_fieldnames.append(new_fieldname)
 
-output_fieldnames = input_fieldnames + new_output_fieldnames
+output_fieldnames = old_output_fieldnames + new_output_fieldnames
 
 
 ofid = open(output_maf_fn,'w')
