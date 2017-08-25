@@ -29,7 +29,7 @@ output_fieldnames = old_output_fieldnames + new_output_fieldnames
 
 
 ofid = open(output_maf_fn,'w')
-dictwriter = csv.DictWriter(ofid, fieldnames=output_fieldnames, dialect='excel-tab', lineterminator='\n')
+dictwriter = csv.DictWriter(ofid, fieldnames=output_fieldnames, extrasaction='ignore' ,dialect='excel-tab', lineterminator='\n')
 dictwriter.writeheader()
 
 for line in dictreader:
